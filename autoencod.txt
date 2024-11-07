@@ -67,6 +67,13 @@ plt.plot(h.history['val_loss'],label='val_loss')
 plt.ylabel('MSLE Loss')
 plt.xlabel('epochs')
 plt.legend()
+OR
+plt.hist(mse, bins=50, alpha=0.75)
+plt.axvline(thresh, color='r', linestyle='--')
+plt.title('Reconstruction Error (MSE) for Anomaly Detection')
+plt.xlabel('MSE')
+plt.ylabel('Frequency')
+plt.show()
 
 
 
