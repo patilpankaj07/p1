@@ -51,10 +51,15 @@ model.fit(x_train,x_train,validation_data=(x_test,x_test),epochs=10)
 h = model.fit(x_train, x_train, epochs = 10, batch_size=512, validation_data=(x_test, x_test))
 
 pred=model.predict(x_test)
-
 mse=np.mean(np.power(pred-x_test,2),axis=1)
 thresh=np.percentile(mse,95)
 print(thresh)
+OR
+pred=model.predict(x_test)
+mse=np.mean(np.power(pred-x_test,2),axis=1)
+thresh=np.percentile(mse,95)
+anomalies = mse > thresh
+print(f'Anomalies detected: {np.sum(anomalies)}')
 
 
 plt.plot(h.history['loss'],label='loss',color='orange')
